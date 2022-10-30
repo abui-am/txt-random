@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import jsonTxt from './json/text.json';
+
 export default {
   data() {
     return {
@@ -14,21 +16,7 @@ export default {
       show: false,
       text: '',
       intervalValue: () => {},
-      content: [
-        ['Cuman', 400],
-        ['Mau', 400],
-        ['Bilang', 700],
-        ['Semangat Nugasnya 💪💪💪', 2000],
-        ['Ingat kata kata ini:', 1000],
-        ['勉強の疲れに耐えられないなら、愚かさの痛みに耐えなければならない.'],
-        ['Kalau ditranslate,', 400],
-        [
-          'Mereka yang tidak sanggup menahan lelahnya belajar, harus sanggup menahan perihnya kebodohan. \n -Imam Syafii',
-          4000,
-          20,
-        ],
-        ['Gila keren bet gw ☕☕'],
-      ],
+      content: [],
     };
   },
   methods: {
@@ -39,10 +27,12 @@ export default {
       this.partIndex--;
     },
     delete() {
-      this.$data.text = this.$data.content[this.$data.part][0].substring(
-        0,
-        this.$data.partIndex - 1
-      );
+      const text =
+        typeof this.$data.content[this.$data.part][0] === 'string'
+          ? this.$data.content[this.$data.part][0]
+          : this.$data.content[this.$data.part][0]['text'];
+
+      this.$data.text = text.substring(0, this.$data.partIndex - 1);
 
       this.decrement();
       // If sentence has been deleted then start to display the next sentence
@@ -64,15 +54,26 @@ export default {
       }
     },
     type() {
+      const text =
+        typeof this.$data.content[this.$data.part][0] === 'string'
+          ? this.$data.content[this.$data.part][0]
+          : this.$data.content[this.$data.part][0]['text'];
+
+      const effect =
+        typeof this.$data.content[this.$data.part][0] === 'string'
+          ? null
+          : this.$data.content[this.$data.part][0]['effect'];
+
+      if (effect === 'confetti') {
+        this.$confetti.start();
+      }
+
       // Get substring with 1 characater added
-      this.$data.text = this.$data.content[this.$data.part][0].substring(
-        0,
-        this.$data.partIndex + 1
-      );
+      this.$data.text = text.substring(0, this.$data.partIndex + 1);
       this.increment();
 
       // If full sentence has been displayed then start to delete the sentence after some time
-      if (this.$data.text === this.$data.content[this.$data.part][0]) {
+      if (this.$data.text === text) {
         // show the cursor
 
         this.$data.show = false;
@@ -92,6 +93,9 @@ export default {
   mounted: function mounted() {
     // List of sentences
 
+    let urlParams = new URLSearchParams(window.location.search);
+
+    this.$data.content = jsonTxt[urlParams.get('txt')];
     this.$data.intervalValue = setInterval(this.type, 100);
   },
 };

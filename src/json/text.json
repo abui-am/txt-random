@@ -1,0 +1,24 @@
+{
+  "untuk-firyal": [
+    ["Cuman", 400],
+    ["Mau", 400],
+    ["Bilang", 700],
+    ["Semangat Nugasnya 💪💪💪", 2000],
+    ["Ingat kata kata ini:", 1000],
+    ["勉強の疲れに耐えられないなら、愚かさの痛みに耐えなければならない."],
+    ["Kalau ditranslate,", 400],
+    [
+      "Mereka yang tidak sanggup menahan lelahnya belajar, harus sanggup menahan perihnya kebodohan. \n -Imam Syafii",
+      4000,
+      20
+    ],
+    ["Gila keren bet gw ☕☕"]
+  ],
+  "untuk-teh-alda": [
+    ["Cuman", 400],
+    ["Mau", 400],
+    ["Bilang", 700],
+    [{ "text": "Happy Graduation Teh Alda 🥳 🎉", "effect": "confetti" }, 2000],
+    ["Sukses terus yaa!! ✌️"]
+  ]
+}
