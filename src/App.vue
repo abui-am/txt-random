@@ -2,6 +2,14 @@
   <div ref="container" id="contatiner">
     <h1 ref="text" id="text">{{ text }}</h1>
     <div id="cursor" v-if="show"></div>
+    <div>
+      <img
+        style="margin-top: 16px"
+        :src="imageUrl"
+        alt="img"
+        v-if="imageUrl && !show"
+      />
+    </div>
   </div>
 </template>
 
@@ -15,6 +23,7 @@ export default {
       part: 0,
       show: false,
       text: '',
+      imageUrl: '',
       intervalValue: () => {},
       content: [],
     };
@@ -66,6 +75,11 @@ export default {
 
       if (effect === 'confetti') {
         this.$confetti.start();
+      }
+
+      if (effect === 'image') {
+        this.$data.imageUrl =
+          this.$data.content[this.$data.part][0]['imageUrl'];
       }
 
       // Get substring with 1 characater added
