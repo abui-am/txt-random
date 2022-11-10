@@ -21,14 +21,14 @@
     [{ "text": "Happy Graduation Teh Alda 🥳 🎉", "effect": "confetti" }, 2000],
     ["Sukses terus yaa!! ✌️"]
   ],
-  "untuk-kamu-adiknya-fawwaz": [
-    ["Untuk", 400, 20],
-    ["Kamu", 200],
-    ["Adiknya", 300, 20],
-    ["Fawwaz", 400],
+  "untuk-kmu": [
+    ["Semangat", 400, 20],
+    ["Terus", 200],
+    ["PKLnya", 300, 20],
+    ["Malvaaa", 400],
     [
       {
-        "text": "Semangat PKLnyaa  💪💪💪",
+        "text": "Yu bisa yuu 1 bulanan lagi 💪",
         "effect": "image",
         "imageUrl": "https://media.tenor.com/fYg91qBpDdgAAAAi/bongo-cat-transparent.gif"
       }

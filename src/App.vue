@@ -4,7 +4,7 @@
     <div id="cursor" v-if="show"></div>
     <div>
       <img
-        style="margin-top: 16px"
+        style="margin-top: 16px; max-width: 360px; width: 100%; height: 100%"
         :src="imageUrl"
         alt="img"
         v-if="imageUrl && !show"
